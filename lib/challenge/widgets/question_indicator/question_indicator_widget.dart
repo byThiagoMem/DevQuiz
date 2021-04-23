@@ -5,6 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuestionIndicatorWidget extends StatelessWidget {
+  final int currentPage;
+  final int length;
+
+  const QuestionIndicatorWidget({Key? key, required this.currentPage, required this.length}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,18 +20,18 @@ class QuestionIndicatorWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Questão 04",
+                "Questão $currentPage",
                 style: AppTextStyles.body,
               ),
               Text(
-                "de 10",
+                "de $length",
                 style: AppTextStyles.body,
               ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
-            child: ProgressIndicatorWidget(value: 0.5),
+            child: ProgressIndicatorWidget(value: currentPage / length),
           ),
 
         ],
