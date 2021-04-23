@@ -1,6 +1,6 @@
 
-import 'package:devquiznlw/shared/widgets/progress_indicator/models/quiz_model.dart';
-import 'package:devquiznlw/shared/widgets/progress_indicator/models/user_model.dart';
+import 'package:devquiznlw/shared/quiz_model.dart';
+import 'package:devquiznlw/shared/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 

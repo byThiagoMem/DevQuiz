@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:devquiznlw/shared/widgets/progress_indicator/models/answer_model.dart';
+import 'answer_model.dart';
 
 
 class QuestionModel {

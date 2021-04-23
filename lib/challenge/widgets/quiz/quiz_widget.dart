@@ -1,7 +1,6 @@
+import 'package:devquiznlw/challenge/widgets/awnser/awnser_widget.dart';
 import 'package:devquiznlw/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
-
-import 'awnser_widget.dart';
 
 class QuizWidget extends StatelessWidget {
 
