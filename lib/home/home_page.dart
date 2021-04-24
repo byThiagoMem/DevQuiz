@@ -74,7 +74,9 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ChallengePage(questions: e.questions,)));
+                                    builder: (context) => ChallengePage(
+                                          questions: e.questions,
+                                        )));
                           },
                           title: e.title,
                           completed:
