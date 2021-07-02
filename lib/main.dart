@@ -1,7 +1,5 @@
-
+import 'package:devquiznlw/splash/splash_page.dart';
 import 'package:flutter/material.dart';
-
-import 'core/app_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: AppWidget(),
+      home: SplashPage(),
     );
   }
 }

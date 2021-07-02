@@ -1,4 +1,3 @@
-
 import 'package:devquiznlw/core/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class LevelButtonWidget extends StatelessWidget {
   final String label;
 
-  LevelButtonWidget({required this.label}):assert(["Fácil", "Médio","Difícil","Perito"].contains(label));
+  LevelButtonWidget({required this.label})
+      : assert(["Fácil", "Médio", "Difícil", "Perito"].contains(label));
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,13 @@ class LevelButtonWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 6.0),
-        child: Text(label,
-        style: GoogleFonts.notoSans(
-          color: fontColor,
-          fontSize: 13.0,
-        ),),
+        child: Text(
+          label,
+          style: GoogleFonts.notoSans(
+            color: fontColor,
+            fontSize: 13.0,
+          ),
+        ),
       ),
     );
   }
@@ -33,24 +35,24 @@ class LevelButtonWidget extends StatelessWidget {
 
   final config = {
     "Fácil": {
-      "color" : AppColors.levelButtonFacil,
-      "borderColor" : AppColors.levelButtonBorderFacil,
-      "fontColor" : AppColors.levelButtonTextFacil,
+      "color": AppColors.levelButtonFacil,
+      "borderColor": AppColors.levelButtonBorderFacil,
+      "fontColor": AppColors.levelButtonTextFacil,
     },
     "Médio": {
-      "color" : AppColors.levelButtonMedio,
-      "borderColor" : AppColors.levelButtonBorderMedio,
-      "fontColor" : AppColors.levelButtonTextMedio,
+      "color": AppColors.levelButtonMedio,
+      "borderColor": AppColors.levelButtonBorderMedio,
+      "fontColor": AppColors.levelButtonTextMedio,
     },
     "Difícil": {
-      "color" : AppColors.levelButtonDificil,
-      "borderColor" : AppColors.levelButtonBorderDificil,
-      "fontColor" : AppColors.levelButtonTextDificil,
+      "color": AppColors.levelButtonDificil,
+      "borderColor": AppColors.levelButtonBorderDificil,
+      "fontColor": AppColors.levelButtonTextDificil,
     },
     "Perito": {
-      "color" : AppColors.levelButtonPerito,
-      "borderColor" : AppColors.levelButtonBorderPerito,
-      "fontColor" : AppColors.levelButtonTextPerito,
+      "color": AppColors.levelButtonPerito,
+      "borderColor": AppColors.levelButtonBorderPerito,
+      "fontColor": AppColors.levelButtonTextPerito,
     },
   };
 }

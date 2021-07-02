@@ -29,63 +29,70 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (controller.state == HomeState.loading) {
-      return Center(
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
+    if (controller.state == HomeState.sucess) {
+      return Scaffold(
+        appBar: AppbarWidget(user: controller.user!),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              SizedBox(height: 20),
+              SizedBox(
+                height: 32,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  children: [
+                    LevelButtonWidget(label: 'Fácil'),
+                    SizedBox(width: 10),
+                    LevelButtonWidget(label: 'Médio'),
+                    SizedBox(width: 10),
+                    LevelButtonWidget(label: 'Difícil'),
+                    SizedBox(width: 10),
+                    LevelButtonWidget(label: 'Perito'),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Expanded(
+                child: GridView.count(
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  crossAxisCount: 2,
+                  children: controller.quizzes!
+                      .map(
+                        (e) => QuizCardWidget(
+                          title: e.title,
+                          completed:
+                              '${e.questionAnswered}/${e.questions.length}',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChallengePage(
+                                  title: e.title,
+                                  questions: e.questions,
+                                ),
+                              ),
+                            );
+                          },
+                          percent: e.questionAnswered / e.questions.length,
+                          image: e.imagem,
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       );
     } else {
       return Scaffold(
-        appBar: AppbarWidget(controller.user!),
-        body: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Column(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    LevelButtonWidget(
-                      label: "Fácil",
-                    ),
-                    LevelButtonWidget(
-                      label: "Médio",
-                    ),
-                    LevelButtonWidget(
-                      label: "Difícil",
-                    ),
-                    LevelButtonWidget(
-                      label: "Perito",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 6,
-                  mainAxisSpacing: 6,
-                  children: controller.quizzes!
-                      .map((e) => QuizCardWidget(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ChallengePage(
-                                          questions: e.questions,
-                                        )));
-                          },
-                          title: e.title,
-                          completed:
-                              "${e.questionAnswered}/${e.questions.length}",
-                          percent: e.questionAnswered / e.questions.length))
-                      .toList(),
-                ),
-              ),
-            ],
+        body: Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
           ),
         ),
       );
